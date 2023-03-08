@@ -17,7 +17,7 @@ use App\Models\Recipe;
 Route::get('/', function () {
     $recipes = Recipe::paginate(5);
 
-    return view('index', [
+    return view('recipes.index', [
         'recipes' => $recipes
     ]);
 });
