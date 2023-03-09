@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('body');

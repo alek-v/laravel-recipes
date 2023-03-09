@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Recipe;
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,5 @@ use App\Models\Recipe;
 |
 */
 
-Route::get('/', function () {
-    $recipes = Recipe::paginate(5);
-
-    return view('recipes.index', [
-        'recipes' => $recipes
-    ]);
-});
+Route::get('/', [RecipeController::class, 'index']);
+Route::get('/recipes/{recipe:slug}', [RecipeController::class, 'show']);
