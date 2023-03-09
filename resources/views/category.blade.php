@@ -3,5 +3,5 @@
     <!-- Recipes -->
     <x-recipes :recipes="$recipes" />
     <!-- Pagination -->
-    {{-- $recipes->links() --}}
+    {{ $recipes->links() }}
 </x-layout>
