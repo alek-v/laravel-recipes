@@ -4,7 +4,7 @@
     <div class="row">
         <div class="row">
             <h2><a href="/recipes/{{ $recipe->slug }}">{{ $recipe->title }}</a></h2>
-            <p>{{ $recipe->author->name }}</p>
+            <p>Created by {{ $recipe->author->name }} in category <a href="/categories/{{ $recipe->category->slug }}">{{ $recipe->category->title }}</a></p>
         </div>
         <div class="row">
             <div class="col"><p>{{ $recipe->description }}</p></div>
