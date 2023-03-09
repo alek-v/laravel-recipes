@@ -19,7 +19,7 @@ class RecipeFactory extends Factory
         return [
             'slug' => $this->faker->slug,
             'title' => $this->faker->sentence(6),
-            'body' => $this->faker->text,
+            'body' => $this->faker->paragraphs(5, true),
             'description' => $this->faker->text
         ];
     }
