@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Recipe;
 
 class CategoriesController extends Controller
 {

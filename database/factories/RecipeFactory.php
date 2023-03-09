@@ -20,7 +20,8 @@ class RecipeFactory extends Factory
             'slug' => $this->faker->slug,
             'title' => $this->faker->sentence(4, 8),
             'body' => $this->faker->paragraphs(5, true),
-            'description' => $this->faker->text
+            'description' => $this->faker->text,
+            'thumbnail' => '/images/pancakes_thumbnail_w320.jpg'
         ];
     }
 }
