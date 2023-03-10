@@ -1,13 +1,40 @@
 body {
   min-height: 100vh;
+  background-color: #FCFDFC;
+}
+
+html, .container {
+  background-color: #FCFDFC;
+  color: #515151;
 }
 
 .main-nav {
   background-color: #FF6B6B;
 }
 
+.toggler-style {
+  background-color: #fff;
+}
+
+.recipe-row {
+  padding: 48px;
+  background-color: rgba(78, 205, 196, 0.4);
+}
+.recipe-row .header-row {
+  margin-left: 0;
+  padding-left: 0;
+}
+
 footer {
+  background-color: #FF6B6B;
+  color: #fff;
   margin-top: auto;
+}
+
+@media (max-width: 480px) {
+  .recipe-row {
+    padding: 40px 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
