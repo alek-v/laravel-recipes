@@ -24,6 +24,9 @@ html, .container {
   margin-left: 0;
   padding-left: 0;
 }
+.recipe-row img {
+  border: 2px solid #fff;
+}
 
 footer {
   background-color: #FF6B6B;
