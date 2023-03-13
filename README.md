@@ -2,12 +2,12 @@
 
 ## Install
 
-To install run command below:
+1. To install run command below:
 ````
 composer install
-````
-
-Insert data in the database:
+````  
+2. Update database data in the .env file  
+3. Insert data in the database:
 ````
 php artisan migrate --seed
-````
+````  
