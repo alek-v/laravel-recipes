@@ -18,3 +18,6 @@ use App\Http\Controllers\CategoriesController;
 Route::get('/', [RecipeController::class, 'index']);
 Route::get('/recipes/{recipe:slug}', [RecipeController::class, 'show']);
 Route::get('/categories/{category:slug}', [CategoriesController::class, 'index']);
+
+// Administrator
+//Route::get('administrator/recipe/create', [RecipeController::class, 'create']);
