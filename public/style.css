@@ -16,6 +16,14 @@ html, .container {
   background-color: #fff;
 }
 
+.login-form {
+  max-width: 450px;
+  background-color: rgba(78, 205, 196, 0.4);
+}
+.login-form > label {
+  margin-top: 20px;
+}
+
 .recipe-row {
   padding: 48px;
   background-color: rgba(78, 205, 196, 0.4);
