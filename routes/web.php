@@ -22,9 +22,9 @@ Route::get('recipes/{recipe:slug}', [RecipeController::class, 'show']);
 Route::get('categories/{category:slug}', [CategoriesController::class, 'index']);
 
 // Users
-Route::get('login', [UserController::class, 'login']);
-Route::post('login', [SessionController::class, 'create']);
-Route::get('logout', [SessionController::class, 'destroy']);
+Route::get('login', [UserController::class, 'login'])->middleware('guest')->name('login');
+Route::post('login', [SessionController::class, 'create'])->middleware('guest');
+Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 // Administrator
-//Route::get('administrator/recipe/create', [RecipeController::class, 'create']);
+Route::get('recipe/create', [RecipeController::class, 'create'])->middleware('administrator');

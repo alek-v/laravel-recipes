@@ -19,13 +19,16 @@ html, .container {
     background-color: #fff;
 }
 
-.login-form {
-    max-width: 450px;
+.form-element {
     background-color: $element-background-color;
 
     &> label {
         margin-top: 20px;
     }
+}
+
+.login-form {
+    max-width: 450px;
 }
 
 .recipe-row {
