@@ -27,4 +27,5 @@ Route::post('login', [SessionController::class, 'create'])->middleware('guest');
 Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 // Administrator
-Route::get('recipe/create', [RecipeController::class, 'create'])->middleware('administrator');
+Route::get('administrator/recipes/create', [RecipeController::class, 'create'])->middleware('administrator');
+Route::post('administrator/recipes/create', [RecipeController::class, 'store'])->middleware('administrator');

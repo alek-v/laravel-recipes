@@ -14,9 +14,10 @@
                             Hi, {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            @if (auth()->user()->role == 'administrator')
+                                <li><a class="dropdown-item" href="/administrator/recipes/create">Add New Recipe</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            @endif
                             <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </li>

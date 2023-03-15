@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Models\Category;
+use Illuminate\Validation\Rule;
 
 class RecipeController extends Controller
 {
@@ -13,7 +15,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return view('recipes.index', ['recipes' => Recipe::paginate(5)]);
+        return view('recipes.index', ['recipes' => Recipe::orderBy('created_at', 'desc')->paginate(5)]);
     }
 
     /**
@@ -34,6 +36,23 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('recipes.create');
+        return view('recipes.create', ['categories' => Category::all()]);
+    }
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'slug' => ['required', Rule::unique('recipes', 'slug')],
+            'description' => 'required',
+            'body' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+
+        Recipe::create($attributes);
+
+        return redirect('/');
     }
 }
