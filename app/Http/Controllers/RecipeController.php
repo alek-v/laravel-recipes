@@ -53,6 +53,6 @@ class RecipeController extends Controller
 
         Recipe::create($attributes);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Recipe has been saved.');
     }
 }
