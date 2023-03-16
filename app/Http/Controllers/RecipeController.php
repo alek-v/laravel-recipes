@@ -46,10 +46,12 @@ class RecipeController extends Controller
             'slug' => ['required', Rule::unique('recipes', 'slug')],
             'description' => 'required',
             'body' => 'required',
+            'thumbnail' => 'image',
             'category_id' => 'required'
         ]);
 
         $attributes['user_id'] = auth()->id();
+        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
         Recipe::create($attributes);
 

@@ -7,6 +7,6 @@
     </div>
     <div class="row">
         <div class="col"><p>{{ $body_text }}</p></div>
-        <div class="col"><img src="{{ $recipe->thumbnail }}" alt="Food thumbnail" class="rounded" /></div>
+        <div class="col"><img src="/{{ $recipe->thumbnail }}" alt="Food thumbnail" class="rounded" /></div>
     </div>
 </div>

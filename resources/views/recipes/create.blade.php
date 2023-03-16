@@ -1,6 +1,6 @@
 <x-layout>
     <h1 class="mb-5">Create a new recipe</h1>
-    <form action="/administrator/recipes/create" method="POST" class="form-element p-4 border rounded">
+    <form action="/administrator/recipes/create" method="POST" enctype="multipart/form-data" class="form-element p-4 border rounded">
         <label for="title" class="form-label">Title</label>
         <input id="title" name="title" value="{{ old('title') }}" class="form-control" required />
         @error('title')
@@ -25,6 +25,13 @@
         <label for="body" class="form-label">Body</label>
         <textarea id="body" name="body" rows="8" class="form-control" required>{{ old('body') }}</textarea>
         @error('body')
+        <div id="passwordHelpBlock" class="form-text text-danger">
+            {{ $message }}
+        </div>
+        @enderror
+        <label for="thumbnail">Thumbnail</label>
+        <input id="thumbnail" name="thumbnail" type="file" class="form-control" />
+        @error('thumbnail')
         <div id="passwordHelpBlock" class="form-text text-danger">
             {{ $message }}
         </div>
