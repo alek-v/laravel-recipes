@@ -20,14 +20,7 @@ class RecipeAdminController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'slug' => ['required', Rule::unique('recipes', 'slug')],
-            'description' => 'required',
-            'body' => 'required',
-            'thumbnail' => 'image',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
+        $attributes = $this->verifyAttributes();
 
         $attributes['user_id'] = auth()->id();
         $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
@@ -58,16 +51,15 @@ class RecipeAdminController extends Controller
         return view('admin.recipes.edit', ['recipe' => $recipe, 'categories' => Category::all()]);
     }
 
+    /**
+     * Save updates
+     *
+     * @param Recipe $recipe
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Recipe $recipe)
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'slug' => ['required', Rule::unique('recipes', 'slug')->ignore($recipe)],
-            'description' => 'required',
-            'body' => 'required',
-            'thumbnail' => 'image',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
+        $attributes = $this->verifyAttributes($recipe);
 
         if (isset($attributes['thumbnail'])) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
@@ -76,5 +68,25 @@ class RecipeAdminController extends Controller
         $recipe->update($attributes);
 
         return back()->with('success', 'Recipe has been updated.');
+    }
+
+    /**
+     * Verify recipe fields
+     *
+     * @param Recipe|null $recipe
+     * @return array
+     */
+    private function verifyAttributes(?Recipe $recipe = null)
+    {
+        $recipe ??= new Recipe();
+
+        return request()->validate([
+            'title' => 'required',
+            'slug' => ['required', Rule::unique('recipes', 'slug')->ignore($recipe)],
+            'description' => 'required',
+            'body' => 'required',
+            'thumbnail' => 'image',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
     }
 }
