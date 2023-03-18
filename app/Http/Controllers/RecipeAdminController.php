@@ -89,4 +89,11 @@ class RecipeAdminController extends Controller
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
     }
+
+    public function destroy(Recipe $recipe)
+    {
+        $recipe->delete();
+
+        return back()->with('success', 'Recipe has been deleted.');
+    }
 }

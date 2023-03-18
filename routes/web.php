@@ -33,3 +33,4 @@ Route::post('administrator/recipes/create', [RecipeAdminController::class, 'stor
 Route::get('administrator/recipes', [RecipeAdminController::class, 'show'])->middleware('administrator');
 Route::get('administrator/recipes/{recipe:id}/edit', [RecipeAdminController::class, 'edit'])->middleware('administrator');
 Route::patch('administrator/recipes/{recipe}', [RecipeAdminController::class, 'update'])->middleware('administrator');
+Route::delete('administrator/recipes/{recipe}', [RecipeAdminController::class, 'destroy'])->middleware('administrator');
