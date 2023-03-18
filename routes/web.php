@@ -5,6 +5,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RecipeAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,6 @@ Route::post('login', [SessionController::class, 'create'])->middleware('guest');
 Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 // Administrator
-Route::get('administrator/recipes/create', [RecipeController::class, 'create'])->middleware('administrator');
-Route::post('administrator/recipes/create', [RecipeController::class, 'store'])->middleware('administrator');
+Route::get('administrator/recipes/create', [RecipeAdminController::class, 'create'])->middleware('administrator');
+Route::post('administrator/recipes/create', [RecipeAdminController::class, 'store'])->middleware('administrator');
+Route::get('administrator/recipes', [RecipeAdminController::class, 'show'])->middleware('administrator');
