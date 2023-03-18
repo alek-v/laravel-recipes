@@ -31,3 +31,5 @@ Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 Route::get('administrator/recipes/create', [RecipeAdminController::class, 'create'])->middleware('administrator');
 Route::post('administrator/recipes/create', [RecipeAdminController::class, 'store'])->middleware('administrator');
 Route::get('administrator/recipes', [RecipeAdminController::class, 'show'])->middleware('administrator');
+Route::get('administrator/recipes/{recipe:id}/edit', [RecipeAdminController::class, 'edit'])->middleware('administrator');
+Route::patch('administrator/recipes/{recipe}', [RecipeAdminController::class, 'update'])->middleware('administrator');

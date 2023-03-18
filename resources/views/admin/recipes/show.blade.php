@@ -6,7 +6,7 @@
             <tr>
                 <td class="ps-4"><a href="/recipes/{{ $recipe->slug }}">{{ $recipe->title }}</a></td>
                 <td><img src="/{{ $recipe->thumbnail }}" alt="Thumbnail" class="thumbnail" /></td>
-                <td>Edit</td>
+                <td><a href="/administrator/recipes/{{ $recipe->id }}/edit">Edit</a></td>
                 <td>Delete</td>
             </tr>
         @endforeach

@@ -15,10 +15,11 @@
                         </a>
                         <ul class="dropdown-menu">
                             @if (auth()->user()->role == 'administrator')
-                                <li><a class="dropdown-item" href="/administrator/recipes/create">Add New Recipe</a></li>
+                                <li><a href="/administrator/recipes" class="dropdown-item">Recipes Dashboard</a></li>
+                                <li><a href="/administrator/recipes/create" class="dropdown-item">Add New Recipe</a></li>
                             <li><hr class="dropdown-divider"></li>
                             @endif
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <li><a href="/logout" class="dropdown-item">Logout</a></li>
                         </ul>
                     </li>
                     @else
