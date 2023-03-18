@@ -39,6 +39,6 @@ class RecipeAdminController extends Controller
 
     public function show()
     {
-        return view('admin.recipes.show', ['recipes' => Recipe::orderBy('created_at', 'desc')->paginate(5)]);
+        return view('admin.recipes.show', ['recipes' => Recipe::orderBy('created_at', 'desc')->paginate(10)]);
     }
 }

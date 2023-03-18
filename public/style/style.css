@@ -40,6 +40,17 @@ html, .container {
   max-width: 320px;
 }
 
+.admin-show-recipes {
+  background-color: rgba(78, 205, 196, 0.4);
+  border-color: #fff;
+}
+.admin-show-recipes tr {
+  vertical-align: middle;
+}
+.admin-show-recipes .thumbnail {
+  max-height: 80px;
+}
+
 footer {
   background-color: #FF6B6B;
   color: #fff;
@@ -49,6 +60,9 @@ footer {
 @media (max-width: 480px) {
   .recipe-row {
     padding: 40px 10px;
+  }
+  .admin-show-recipes .thumbnail {
+    max-height: 50px;
   }
 }
 
