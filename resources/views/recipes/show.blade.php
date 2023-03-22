@@ -1,3 +1,3 @@
 <x-layout>
-    <x-recipes.recipe-row :recipe="$recipe" :body_text="$recipe->body" />
+    <x-recipes.recipe-row :recipe="$recipe" />
 </x-layout>
