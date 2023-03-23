@@ -23,7 +23,7 @@ Route::get('/', [RecipeController::class, 'index']);
 Route::get('recipes/{recipe:slug}', [RecipeController::class, 'show']);
 Route::get('categories/{category:slug}', [CategoriesController::class, 'index']);
 
-Route::post('recipes/{recipe:id}/comment', [CommentController::class, 'store']);
+Route::post('recipes/{recipe:id}/comment', [CommentController::class, 'store'])->middleware('auth');
 
 // Users
 Route::get('login', [UserController::class, 'login'])->middleware('guest')->name('login');
