@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
-use App\Models\Category;
 use Illuminate\Validation\Rule;
 
 class RecipeController extends Controller
@@ -26,6 +25,9 @@ class RecipeController extends Controller
      */
     public function show(Recipe $recipe)
     {
-        return view('recipes.show', ['recipe' => $recipe]);
+        return view('recipes.show', [
+            'recipe' => $recipe,
+            'comments' => $recipe->comments()->orderByDesc('created_at')->paginate(10)
+        ]);
     }
 }

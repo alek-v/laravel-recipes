@@ -1,4 +1,4 @@
-@props(['recipe'])
+@props(['recipe', 'comments'])
 
 <div class="row border rounded mb-5 recipe-row">
     <div class="row border-bottom border-2 border-light mb-5 header-row">
@@ -24,8 +24,9 @@
                 <p class="mb-0">You need to <a href="/login">login</a> to add a comment.</p>
             @endauth
         </div>
-        @foreach ($recipe->comments()->orderBy('created_at', 'desc')->get() as $comment)
+        @foreach ($comments as $comment)
             <x-recipes.recipe-comment :comment="$comment" />
         @endforeach
+        {{ $comments->links() }}
     </div>
 </div>
