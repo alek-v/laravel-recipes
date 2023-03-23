@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RecipeAdminController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ use App\Http\Controllers\RecipeAdminController;
 Route::get('/', [RecipeController::class, 'index']);
 Route::get('recipes/{recipe:slug}', [RecipeController::class, 'show']);
 Route::get('categories/{category:slug}', [CategoriesController::class, 'index']);
+
+Route::post('recipes/{recipe:id}/comment', [CommentController::class, 'store']);
 
 // Users
 Route::get('login', [UserController::class, 'login'])->middleware('guest')->name('login');

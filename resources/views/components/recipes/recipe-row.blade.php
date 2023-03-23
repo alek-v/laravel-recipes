@@ -14,7 +14,7 @@
         <div class="border border-light rounded mt-3 pt-4 pb-3">
             @auth()
                 <p><strong>Share your thoughts...</strong></p>
-                <form action="#" method="POST">
+                <form action="/recipes/{{ $recipe->id }}/comment" method="POST">
                     <label for="comment" class="form-label">Comment</label>
                     <textarea id="comment" name="comment" type="text" rows="5" class="form-control"></textarea>
                     @csrf
@@ -24,8 +24,8 @@
                 <p class="mb-0">You need to <a href="/login">login</a> to add a comment.</p>
             @endauth
         </div>
-        <x-recipes.recipe-comment />
-        <x-recipes.recipe-comment />
-        <x-recipes.recipe-comment />
+        @foreach ($recipe->comments()->orderBy('created_at', 'desc')->get() as $comment)
+            <x-recipes.recipe-comment :comment="$comment" />
+        @endforeach
     </div>
 </div>
