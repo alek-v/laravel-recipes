@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/login">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/register">Register</a>
+                    </li>
                 @endauth
             </ul>
             <form class="d-flex mb-0" role="search">
