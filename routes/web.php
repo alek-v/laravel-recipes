@@ -30,6 +30,7 @@ Route::get('login', [UserController::class, 'login'])->middleware('guest')->name
 Route::post('login', [SessionController::class, 'create'])->middleware('guest');
 Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 Route::get('register', [UserController::class, 'register'])->middleware('guest');
+Route::post('register', [UserController::class, 'create'])->middleware('guest');
 
 // Administrator
 Route::get('administrator/recipes/create', [RecipeAdminController::class, 'create'])->middleware('administrator');
