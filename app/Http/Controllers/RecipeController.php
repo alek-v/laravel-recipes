@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
-use Illuminate\Validation\Rule;
 
 class RecipeController extends Controller
 {
@@ -14,7 +13,13 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return view('recipes.index', ['recipes' => Recipe::orderBy('created_at', 'desc')->paginate(5)]);
+        if (!empty(request('search'))) {
+            $recipes = Recipe::where('title', 'like', '%' . request('search') . '%');
+        } else {
+            $recipes = Recipe::orderBy('created_at', 'desc');
+        }
+
+        return view('recipes.index', ['recipes' => $recipes->paginate(5)]);
     }
 
     /**
